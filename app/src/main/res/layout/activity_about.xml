@@ -6,4 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".AboutActivity">
 
+    <ImageView
+        android:id="@+id/aboutBackgroundImageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/gravity_9606_540x960" />
+
+    <TextView
+        android:id="@+id/titleAboutTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="@string/pop_quizz"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#DACF03"
+        app:layout_constraintBottom_toTopOf="@+id/madeByTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutBackgroundImageView" />
+
+    <TextView
+        android:id="@+id/versionAboutTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#DACF03"
+        app:layout_constraintBottom_toTopOf="@+id/aboutBackgroundImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/madeByTextView" />
+
+    <TextView
+        android:id="@+id/madeByTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Créé par Kevin Fagot"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#DACF03"
+        app:layout_constraintBottom_toTopOf="@+id/versionAboutTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleAboutTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemRecycler"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp">
+
+    <ImageView
+        android:id="@+id/overlayItemImageView"
+        android:layout_width="390dp"
+        android:layout_height="191dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/listImageView"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/RAtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#DACF03"
+        android:fontFamily="@font/roboto_thin"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/RCtextView"
+        app:layout_constraintEnd_toStartOf="@+id/RBtextView"
+        app:layout_constraintStart_toEndOf="@+id/listImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/RBtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#DACF03"
+        android:fontFamily="@font/roboto_thin"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/RDtextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/RAtextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/RDtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#DACF03"
+        android:fontFamily="@font/roboto_thin"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/RCtextView"
+        app:layout_constraintTop_toBottomOf="@+id/RBtextView" />
+
+    <TextView
+        android:id="@+id/RCtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#DACF03"
+        android:fontFamily="@font/roboto_thin"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/RDtextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/listImageView"
+        app:layout_constraintTop_toBottomOf="@+id/RAtextView" />
+
+    <TextView
+        android:id="@+id/questiontextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="#DACF03"
+        android:fontFamily="@font/roboto_thin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Ceci est la question posé" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

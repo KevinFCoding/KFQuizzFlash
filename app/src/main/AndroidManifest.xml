@@ -9,17 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultQuizzActivity"></activity>
-        <activity android:name=".MovieQuizzActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".QuestionsListActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HubActivity"></activity>
+        <activity android:name=".ChooseActivity" />
+        <activity android:name=".ResultQuizzActivity" />
+        <activity android:name=".QuizzGameActivity" />
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".QuestionsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

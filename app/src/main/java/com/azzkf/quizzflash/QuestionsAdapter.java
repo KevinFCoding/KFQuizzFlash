@@ -34,15 +34,13 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Question question = level.get(position);
-        List elementListQuestion = question.getAnswers();
-        Log.i(TAG, "onBindViewHolder: "+elementListQuestion);
 
-        //holder.RA.setText(question.getAnswers());
-        //holder.RB.setText(question.getAnswers());
-        //holder.RC.setText(question.getAnswers());
-        //holder.RD.setText(question.getAnswers());
+        holder.RA.setText(question.getAnswerA());
+        holder.RB.setText(question.getAnswerB());
+        holder.RC.setText(question.getAnswerC());
+        holder.RD.setText(question.getGoodAnswers());
 
-        holder.img.setImageResource(question.getImg());
+        holder.img.setImageResource(question.getImgID());
         holder.qst.setText(question.getQuestion());
 
         holder.itemView.setTag(level);

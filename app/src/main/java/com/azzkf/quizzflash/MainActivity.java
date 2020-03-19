@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
             }
         });
 

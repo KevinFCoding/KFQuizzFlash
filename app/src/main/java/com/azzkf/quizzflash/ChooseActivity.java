@@ -14,7 +14,31 @@ public class ChooseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
+        Button filmButton = findViewById(R.id.filmButton);
+        Button vgButton = findViewById(R.id.vgButton);
 
+        filmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HubTag hubOject = new HubTag("Commencer le Quizz Cinema", "Voir la liste des questions cinéma", R.drawable.filmz, "film");
+                navigateToHub(hubOject);
+            }
+        });
+
+        vgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HubTag hubOject = new HubTag("Commencer le Quizz JeuxVidéo", "Voir la liste des questions jeux vidéos", R.drawable.marioo, "videogames");
+                navigateToHub(hubOject);
+            }
+        });
 
     }
+
+    private void navigateToHub(HubTag ht){
+        Intent intent = new Intent(ChooseActivity.this, HubActivity.class);
+        intent.putExtra("tagChoosed", ht);
+        startActivity(intent);
+    }
+
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Question implements Parcelable {
 
-
         private String answerA;
         private String answerB;
         private String answerC;
@@ -100,6 +99,10 @@ public class Question implements Parcelable {
 
     public int getImgID() {
         return imgID;
+    }
+
+    public void setImgID(int imgID) {
+        this.imgID = imgID;
     }
 
     public int getSound() {

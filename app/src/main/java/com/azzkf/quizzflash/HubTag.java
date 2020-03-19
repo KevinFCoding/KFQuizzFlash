@@ -9,7 +9,6 @@ public class HubTag implements Parcelable {
     private int backgroundHub;
     private String choosedQuizz;
 
-
     public HubTag(String whichQuizz, String whichList, int backgroundHub, String choosedQuizz) {
         this.whichQuizz = whichQuizz;
         this.whichList = whichList;
@@ -17,11 +16,11 @@ public class HubTag implements Parcelable {
         this.choosedQuizz = choosedQuizz;
     }
 
-
     protected HubTag(Parcel in) {
         whichQuizz = in.readString();
         whichList = in.readString();
         backgroundHub = in.readInt();
+        choosedQuizz = in.readString();
     }
 
     @Override
@@ -29,6 +28,7 @@ public class HubTag implements Parcelable {
         dest.writeString(whichQuizz);
         dest.writeString(whichList);
         dest.writeInt(backgroundHub);
+        dest.writeString(choosedQuizz);
     }
 
     @Override

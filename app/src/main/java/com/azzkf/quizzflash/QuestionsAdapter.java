@@ -39,13 +39,10 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
         holder.RB.setText(question.getAnswerB());
         holder.RC.setText(question.getAnswerC());
         holder.RD.setText(question.getGoodAnswers());
-
         holder.img.setImageResource(question.getImgID());
         holder.qst.setText(question.getQuestion());
-
-        holder.itemView.setTag(level);
-        holder.itemView.setOnClickListener(this);
-    }
+        holder.itemView.setTag(question);
+        holder.itemView.setOnClickListener(this); }
 
     @Override
     public int getItemCount() {
@@ -56,10 +53,10 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.overlayItemImageView:
+            case R.id.itemRecycler:
                 Question q = (Question)v.getTag();
                 Context context = v.getContext();
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, QuizzGameActivity.class);
                 intent.putExtra("question", q);
                 context.startActivity(intent);
                 break;
@@ -78,16 +75,15 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
         final TextView RD;
         final TextView qst;
 
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-        public ViewHolder(@NonNull View itemRecycler) {
-            super(itemRecycler);
-
-            img = itemRecycler.findViewById(R.id.listImageView);
-            RA = itemRecycler.findViewById(R.id.RAtextView);
-            RB = itemRecycler.findViewById(R.id.RBtextView);
-            RC = itemRecycler.findViewById(R.id.RCtextView);
-            RD = itemRecycler.findViewById(R.id.RDtextView);
-            qst = itemRecycler.findViewById(R.id.questiontextView);
+            img = itemView.findViewById(R.id.listImageView);
+            RA = itemView.findViewById(R.id.RAtextView);
+            RB = itemView.findViewById(R.id.RBtextView);
+            RC = itemView.findViewById(R.id.RCtextView);
+            RD = itemView.findViewById(R.id.RDtextView);
+            qst = itemView.findViewById(R.id.questiontextView);
 
 
         }

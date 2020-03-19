@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">QuizzFlash</string>
+    <string name="a_propos">A propos</string>
+    <string name="jouer">Jouer</string>
+    <string name="pop_quizz">Pop Quizz</string>
+    <string name="todo">TODO</string>
 </resources>

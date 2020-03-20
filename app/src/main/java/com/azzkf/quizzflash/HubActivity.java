@@ -128,7 +128,7 @@ public class HubActivity extends AppCompatActivity {
          */
         if (choosedQuizz.equals("videogames")) {
             questions.add(new Question("Donkey Kong", "Mario", "Kid Icarus", "Zelda", "D'où vient ce son", "Princesse", 0, R.raw.wwstart, "videogames", "Facile"));
-            questions.add(new Question("Skyrim", "Zelda", "", "Mario", "D'où vient ce son", "Papa moustachu", 0, R.raw.mariojump, "videogames", "Facile"));
+            questions.add(new Question("Skyrim", "Zelda", "Doom", "Mario", "D'où vient ce son", "Papa moustachu", 0, R.raw.mariojump, "videogames", "Facile"));
             questions.add(new Question("Europa", "Warhammer", "Starcraft", "Warcraft", "D'où vient ce son", "Plombier", 0, R.raw.leeroy, "videogames", "Facile"));
 
             questions.add(new Question("Max Pain", "Mario", "Fire Emblem", "Skyrim", "D'où vient ce son", "V eme du nom", 0, R.raw.skyrim, "videogames", "Moyen"));

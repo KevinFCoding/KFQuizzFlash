@@ -38,6 +38,7 @@
         android:layout_marginTop="60dp"
         android:text="Ecouter le son"
         android:visibility="visible"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="@+id/gameOverlaImageView"
         app:layout_constraintStart_toStartOf="@+id/gameRadioGroup"
         app:layout_constraintTop_toTopOf="@+id/gameBackgroundImageView" />
@@ -57,6 +58,7 @@
         android:layout_height="70dp"
         android:layout_marginBottom="80dp"
         android:text="Confirmer"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/gameBackgroundImageView"
         app:layout_constraintEnd_toEndOf="@+id/gameOverlaImageView"
         app:layout_constraintStart_toStartOf="@+id/gameOverlaImageView" />
@@ -124,6 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:text="indice"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/confirmToggleButton"
         app:layout_constraintHorizontal_bias="0.498"

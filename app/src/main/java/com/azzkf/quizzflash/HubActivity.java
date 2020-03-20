@@ -17,6 +17,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+
 public class HubActivity extends AppCompatActivity {
 
     private String TAG = "HubActivity";
@@ -117,9 +119,10 @@ public class HubActivity extends AppCompatActivity {
      */
     private ArrayList<Question> generateQuestion(String choosedQuizz) {
         questions = new ArrayList<>();
-
         // If we use an API use a FOR here instead of this code
 
+        OkHttpClient client = new OkHttpClient();
+        
         /***
          * Can be setup in a JSON for better perf
          */

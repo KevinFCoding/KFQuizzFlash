@@ -9,6 +9,12 @@ import android.widget.Button;
 
 public class ChooseActivity extends AppCompatActivity {
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ChooseActivity.this, MainActivity.class));
+        finish();
+    }
     /***
      *
      * @param savedInstanceState

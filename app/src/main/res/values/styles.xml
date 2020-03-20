@@ -11,6 +11,4 @@
     <style name="customfontstyle" parent="@android:style/TextAppearance">
         <item name="android:fontFamily">@font/press_start_2p</item>
     </style>
-
-
 </resources>

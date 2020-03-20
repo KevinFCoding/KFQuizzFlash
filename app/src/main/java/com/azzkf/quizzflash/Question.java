@@ -12,6 +12,9 @@ import java.util.List;
 
 public class Question implements Parcelable {
 
+    /***
+     * Wanted to do a List<String> but some problem during the creation of the Object
+     */
     private String answerA;
     private String answerB;
     private String answerC;

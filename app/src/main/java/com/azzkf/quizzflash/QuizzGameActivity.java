@@ -190,6 +190,12 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
                     if (questionDifficulty.size() == 0) {
                         if (selectedButton.getText().equals(trueanswer)) {
                             score += 1;
+                            success.setText("Bonne réponse !");
+                            success.setVisibility(View.VISIBLE);
+                        }
+                        else{
+                            success.setText("Mauvaise réponse !");
+                            success.setVisibility(View.VISIBLE);
                         }
                             confirm.setText("Voir résultats");
                     } else {

@@ -30,6 +30,9 @@ public class HubActivity extends AppCompatActivity {
 
         Intent srcIntent = getIntent();
 
+        /***
+         * Directly getting information from the hubtag class to set-up the style.
+         */
         hub = srcIntent.getParcelableExtra("tagChoosed");
 
         Button quizzButton = findViewById(R.id.hubQuizzButton);
@@ -41,7 +44,9 @@ public class HubActivity extends AppCompatActivity {
         quizzButton.setText(hub.getWhichQuizz());
         listButton.setText(hub.getWhichList());
 
-
+        /***
+         * Preping here the different difficulty for the player to choose
+         */
         quizzButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +93,10 @@ public class HubActivity extends AppCompatActivity {
 
             }
         });
-
+        /***
+         * Information for the second bouton : the ListView throwing the list of Questions
+         * (Videogames or Films)
+         */
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,11 +109,20 @@ public class HubActivity extends AppCompatActivity {
 
     }
 
+    /***
+     * Mock setup of the Question, it's a simple object with : assets and strings, need a difficulty
+     * too to function or NPE.
+     * @param choosedQuizz Toggle if which Questions is Charged
+     * @return
+     */
     private ArrayList<Question> generateQuestion(String choosedQuizz) {
         questions = new ArrayList<>();
 
         // If we use an API use a FOR here instead of this code
 
+        /***
+         * Can be setup in a JSON for better perf
+         */
         if (choosedQuizz.equals("videogames")) {
             questions.add(new Question("Donkey Kong", "Mario", "Kid Icarus", "Zelda", "D'où vient ce son", "Princesse", 0, R.raw.wwstart, "videogames", "Facile"));
             questions.add(new Question("Skyrim", "Zelda", "", "Mario", "D'où vient ce son", "Papa moustachu", 0, R.raw.mariojump, "videogames", "Facile"));

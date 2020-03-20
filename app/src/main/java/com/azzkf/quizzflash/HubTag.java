@@ -3,6 +3,10 @@ package com.azzkf.quizzflash;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/***
+ * First object to manage the hub activity.
+ * Easier scallability for new Games / Quizz implementations.
+ */
 public class HubTag implements Parcelable {
     private String whichQuizz;
     private String whichList;
@@ -47,6 +51,11 @@ public class HubTag implements Parcelable {
             return new HubTag[size];
         }
     };
+
+    /***
+     * Getter presseted for each Contructor information 
+     * @return
+     */
 
     public String getWhichQuizz() {
         return whichQuizz;

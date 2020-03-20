@@ -24,15 +24,25 @@ public class ResultQuizzActivity extends AppCompatActivity {
 
         Intent srcIntent = getIntent();
 
+        /***
+         * Setupping all the Extras
+         */
         score = srcIntent.getIntExtra("score", 0);
         numberOfQuestion = srcIntent.getIntExtra("questionnumber", 1);
+        /***
+         * Problem with the math apparently, using an integer seems to make percent = 0 need help
+         */
         percent = (score * 100) / 3; // bug when set an integer instead TODO
+
         TextView scoreTextView = findViewById(R.id.scoreTextView);
         scoreTextView.setText(percent + "%");
         TextView congrats = findViewById(R.id.congratsTextView);
         TextView display = findViewById(R.id.displayScoreTextView);
         display.setText(score + " / " + numberOfQuestion);
 
+        /***
+         * Some addition to the congrats for the player "NEVER GIVE UP"
+         */
         if (percent == 100) {
             congrats.setText("PERFECT SCORE");
         } else if (percent < 100 && percent >= 75) {
@@ -45,6 +55,9 @@ public class ResultQuizzActivity extends AppCompatActivity {
             congrats.setText("Wtf mate");
         }
 
+        /***
+         * If you wanna play again
+         */
         Button back = findViewById(R.id.backMenuButton);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

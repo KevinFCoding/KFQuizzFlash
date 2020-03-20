@@ -15,6 +15,9 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         TextView version = findViewById(R.id.versionAboutTextView);
+        /***
+         * Directly get the VERSION NAME from the Config so it's Dynamic on the upgrade
+         */
         version.setText(BuildConfig.VERSION_NAME);
     }
 }

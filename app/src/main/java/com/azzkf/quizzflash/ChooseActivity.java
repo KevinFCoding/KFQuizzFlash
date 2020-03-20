@@ -9,13 +9,25 @@ import android.widget.Button;
 
 public class ChooseActivity extends AppCompatActivity {
 
+    /***
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
+        /***
+         * Set-up buttons for latter OnClickUse
+         */
         Button filmButton = findViewById(R.id.filmButton);
         Button vgButton = findViewById(R.id.vgButton);
+
+        /***
+         * Choose to play a Quizz about Movies or Video Games, take from HubTag to avoid
+         * code repetition.
+         */
 
         filmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +47,11 @@ public class ChooseActivity extends AppCompatActivity {
 
     }
 
-    private void navigateToHub(HubTag ht){
+    /***
+     * Use the object ht to param the next View
+     * @param ht an object from the Hubtag class, use to configurate the HubActivity with text.
+     */
+    private void navigateToHub(HubTag ht) {
         Intent intent = new Intent(ChooseActivity.this, HubActivity.class);
         intent.putExtra("tagChoosed", ht);
         startActivity(intent);

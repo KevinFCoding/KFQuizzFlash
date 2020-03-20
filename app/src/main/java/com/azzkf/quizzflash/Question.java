@@ -5,6 +5,11 @@ import android.os.Parcelable;
 
 import java.util.List;
 
+/***
+ * Main constructor from the app, create the Parcelable question for the Quizz,
+ * contain everything from the assets to the question and the text.
+ */
+
 public class Question implements Parcelable {
 
     private String answerA;
@@ -75,6 +80,11 @@ public class Question implements Parcelable {
         }
     };
 
+    /***
+     * Getter to target information from the Constructor/Object
+     * Can be easily used with an API that way
+     * @return Mostly String and Assets
+     */
     public String getAnswerA() {
         return answerA;
     }

@@ -2,9 +2,6 @@ package com.azzkf.quizzflash;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.azzkf.quizzflash.Question;
 
 import java.util.List;
 
@@ -36,6 +31,7 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         Question question = level.get(position);
 
         holder.RA.setText(question.getAnswerA());
@@ -54,6 +50,12 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
         return level.size();
     }
 
+    /***
+     * Hardest part with some problem due to the ArrayList
+     * q and v?getTag() sending an object and not an ArrayList caused me some trouble and made me
+     * create some safe parameter on QuizzGame
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -73,6 +75,10 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
     //Viewholder linked to a graphic element
 
     class ViewHolder extends RecyclerView.ViewHolder {
+
+        /***
+         * Getting the holder for each response, the question and the img to place on the item
+         */
 
         final ImageView img;
         final TextView RA;

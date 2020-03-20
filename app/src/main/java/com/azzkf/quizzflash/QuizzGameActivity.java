@@ -1,5 +1,6 @@
 package com.azzkf.quizzflash;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -34,11 +35,18 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
     private int clickCount;
     private String trueanswer;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(QuizzGameActivity.this, ChooseActivity.class));
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz_game);
+
 
         Intent srcIntent = getIntent();
 
@@ -160,6 +168,11 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
             @Override
             public void onClick(View v) {
                 int selectedAnswers = answersGroup.getCheckedRadioButtonId();
+                if (selectedAnswers == -1){
+                    Toast.makeText(QuizzGameActivity.this,
+                            "Veuillez choisir une réponse", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 RadioButton selectedButton = findViewById(selectedAnswers);
                 if (difficulty.equals("Special")) {
                     if (selectedButton.getText().equals(trueanswer)) {
@@ -174,22 +187,25 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
 
                 if (clickCount == 0 && difficulty.equals("Special") == false) {
                     questionDifficulty.remove(0);
-                    if (questionDifficulty.isEmpty()) {
-                        confirm.setText("Voir résultats");
+                    if (questionDifficulty.size() == 0) {
+                        if (selectedButton.getText().equals(trueanswer)) {
+                            score += 1;
+                        }
+                            confirm.setText("Voir résultats");
                     } else {
                         confirm.setText("Prochaine question");
+                        if (selectedButton.getText().equals(trueanswer)) {
+                            success.setText("Bonne réponse !");
+                            success.setVisibility(View.VISIBLE);
+                            score += 1;
+                        } else {
+                            success.setText("Mauvaise réponse !");
+                            success.setVisibility(View.VISIBLE);
+                        }
                     }
                     clickCount += 1;
                 } else {
-                    if (selectedButton.getText().equals(trueanswer)) {
-                        success.setText("Bonne réponse !");
-                        success.setVisibility(View.VISIBLE);
-                        score += 1;
-                    } else {
-                        success.setText("Mauvaise réponse !");
-                        success.setVisibility(View.VISIBLE);
-                    }
-                    if (difficulty.equals("Special") || questionDifficulty.isEmpty()) {
+                    if (difficulty.equals("Special") || questionDifficulty.size() == 0) {
                         Intent end = new Intent(QuizzGameActivity.this, ResultQuizzActivity.class);
                         end.putExtra("score", score);
                         end.putExtra("questionnumber", questionNumber);

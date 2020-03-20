@@ -1,5 +1,6 @@
 package com.azzkf.quizzflash;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,8 +16,14 @@ public class ResultQuizzActivity extends AppCompatActivity {
     private int score;
     private int numberOfQuestion;
     private String congrats;
-    private int percent;
+    // private int percent;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ResultQuizzActivity.this, ChooseActivity.class));
+        finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +39,9 @@ public class ResultQuizzActivity extends AppCompatActivity {
         /***
          * Problem with the math apparently, using an integer seems to make percent = 0 need help
          */
-        percent = (score * 100) / 3; // bug when set an integer instead TODO
 
         TextView scoreTextView = findViewById(R.id.scoreTextView);
-        scoreTextView.setText(percent + "%");
+        scoreTextView.setText((score*100)/numberOfQuestion + "%");
         TextView congrats = findViewById(R.id.congratsTextView);
         TextView display = findViewById(R.id.displayScoreTextView);
         display.setText(score + " / " + numberOfQuestion);
@@ -43,7 +49,10 @@ public class ResultQuizzActivity extends AppCompatActivity {
         /***
          * Some addition to the congrats for the player "NEVER GIVE UP"
          */
-        if (percent == 100) {
+
+        congrats.setText("Congratulation !");
+
+        /*if (percent == 100) {
             congrats.setText("PERFECT SCORE");
         } else if (percent < 100 && percent >= 75) {
             congrats.setText("Congratulation !");
@@ -53,7 +62,7 @@ public class ResultQuizzActivity extends AppCompatActivity {
             congrats.setText("Peu mieux faire");
         } else {
             congrats.setText("Wtf mate");
-        }
+        }*/
 
         /***
          * If you wanna play again

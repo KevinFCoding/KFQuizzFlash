@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuizzGameActivity">
@@ -37,13 +38,13 @@
         android:layout_marginTop="60dp"
         android:text="Ecouter le son"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/gameOverlaImageView"
+        app:layout_constraintStart_toStartOf="@+id/gameRadioGroup"
         app:layout_constraintTop_toTopOf="@+id/gameBackgroundImageView" />
 
     <ImageView
         android:id="@+id/mainGameImageView"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="180dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,16 +55,17 @@
         android:id="@+id/confirmToggleButton"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="80dp"
         android:text="Confirmer"
         app:layout_constraintBottom_toBottomOf="@+id/gameBackgroundImageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/gameOverlaImageView"
+        app:layout_constraintStart_toStartOf="@+id/gameOverlaImageView" />
 
     <RadioGroup
         android:id="@+id/gameRadioGroup"
         android:layout_width="360dp"
         android:layout_height="190dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/confirmToggleButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,47 +76,53 @@
             android:id="@+id/aRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#66000000"
             android:fontFamily="sans-serif-medium"
             android:text="RadioButton"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#FFFFFF"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <RadioButton
             android:id="@+id/bRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#66000000"
             android:fontFamily="sans-serif-medium"
             android:text="RadioButton"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#FFFFFF"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <RadioButton
             android:id="@+id/cRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#66000000"
             android:fontFamily="sans-serif-medium"
             android:text="RadioButton"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#FFFFFF"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <RadioButton
             android:id="@+id/dRadioButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="#66000000"
             android:fontFamily="sans-serif-medium"
             android:text="RadioButton"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#FFFFFF"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
+
     </RadioGroup>
 
     <Button
         android:id="@+id/clueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:text="indice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/confirmToggleButton"
@@ -126,14 +134,16 @@
         android:id="@+id/successGameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFF"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/confirmToggleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/gameOverlaImageView"
+        app:layout_constraintStart_toStartOf="@+id/gameOverlaImageView"
         app:layout_constraintTop_toBottomOf="@+id/gameRadioGroup" />
 
     <TextView

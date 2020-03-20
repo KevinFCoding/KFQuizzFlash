@@ -15,10 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class QuizzGameActivity extends AppCompatActivity implements Serializable {
 
@@ -26,11 +24,8 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
     private ArrayList<Question> questionDifficulty;
     private Question questionStandAlone;
     private ArrayList<String> answers;
-    private RadioButton radioButton;
-    private MediaPlayer sound;
     private int score;
     private int questionNumber;
-    private int questionLeft;
     private int clickCount;
     private String trueanswer;
 
@@ -52,7 +47,6 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
         /*We catch only the objects from the difficulty needed */
 
         /* We process the difficulty only the first time */
-
         if (questionNumber == 1) {
             if (difficulty.equals("Special")) {
                 questionStandAlone = srcIntent.getParcelableExtra("questions");
@@ -69,7 +63,6 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
         /* Get the answers from the first shuffled object */
 
         if (difficulty.equals("Special")) {
-
             answers = new ArrayList<String>();
             answers.add(questionStandAlone.getAnswerA());
             answers.add(questionStandAlone.getAnswerB());
@@ -77,7 +70,6 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
             answers.add(questionStandAlone.getGoodAnswers());
         } else {
             answers = createAnswersArray(questionDifficulty);
-
         }
         /*Shuffle them */
 
@@ -131,19 +123,26 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
             public void onClick(View v) {
                 int selectedAnswers = answersGroup.getCheckedRadioButtonId();
                 RadioButton selectedButton = findViewById(selectedAnswers);
-                if (clickCount == 0) {
-                    if (difficulty.equals("Special")) {
-                        confirm.setText("Voir résultats");
-                    } else {
-                        questionDifficulty.remove(0);
-                        if (questionDifficulty.isEmpty()) {
-                            confirm.setText("Voir résultats");
-                        } else {
-                            confirm.setText("Prochaine question");
-                        }
-                        clickCount += 1;
+                if (difficulty.equals("Special")) {
+                    if (selectedButton.getText().equals(trueanswer)) {
+                        score += 1;
                     }
 
+                    Intent endSpecial = new Intent(QuizzGameActivity.this, ResultQuizzActivity.class);
+                    endSpecial.putExtra("score", score);
+                    endSpecial.putExtra("questionnumber", questionNumber);
+                    startActivity(endSpecial);
+                }
+
+                if (clickCount == 0 && difficulty.equals("Special") == false) {
+                    questionDifficulty.remove(0);
+                    if (questionDifficulty.isEmpty()) {
+                        confirm.setText("Voir résultats");
+                    } else {
+                        confirm.setText("Prochaine question");
+                    }
+                    clickCount += 1;
+                } else {
                     if (selectedButton.getText().equals(trueanswer)) {
                         success.setText("Bonne réponse !");
                         success.setVisibility(View.VISIBLE);
@@ -152,7 +151,6 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
                         success.setText("Mauvaise réponse !");
                         success.setVisibility(View.VISIBLE);
                     }
-                } else {
                     if (difficulty.equals("Special") || questionDifficulty.isEmpty()) {
                         Intent end = new Intent(QuizzGameActivity.this, ResultQuizzActivity.class);
                         end.putExtra("score", score);
@@ -167,10 +165,12 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
                         intent.putExtra("questionnumber", questionNumber);
                         intent.putExtra("clickcount", 0);
                         intent.putExtra("back", background);
+                        intent.putExtra("difficulty", difficulty);
                         startActivity(intent);
                     }
                 }
             }
+
         });
 
         /* Add a little clue pop-up */
@@ -201,7 +201,9 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
                     }
                 });
             }
-        } else if (questionDifficulty.get(0).getSound() != 0) {
+        } else if (questionDifficulty.get(0).
+
+                getSound() != 0) {
             final MediaPlayer sound = MediaPlayer.create(this, questionDifficulty.get(0).getSound());
             playSound.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -219,6 +221,7 @@ public class QuizzGameActivity extends AppCompatActivity implements Serializable
         } else {
             mainImage.setImageResource(questionDifficulty.get(0).getImgID());
         }
+
     }
 
     private ArrayList<Question> createArrayDifficulty(ArrayList<Question> question, String difficulty) {

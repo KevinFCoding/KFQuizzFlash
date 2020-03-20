@@ -124,12 +124,12 @@
 
     <TextView
         android:id="@+id/successGameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFF"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/confirmToggleButton"
         app:layout_constraintEnd_toEndOf="parent"

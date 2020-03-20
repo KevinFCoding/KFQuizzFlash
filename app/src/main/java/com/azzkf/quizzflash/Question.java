@@ -1,22 +1,24 @@
 package com.azzkf.quizzflash;
+
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import java.util.List;
 
 public class Question implements Parcelable {
 
-        private String answerA;
-        private String answerB;
-        private String answerC;
-        private String goodAnswers;
-        private String question;
-        private String clue;
-        private int imgID;
-        private int sound;
-        private String typeQuestion;
-        private int difficulty;
+    private String answerA;
+    private String answerB;
+    private String answerC;
+    private String goodAnswers;
+    private String question;
+    private String clue;
+    private int imgID;
+    private int sound;
+    private String typeQuestion;
+    private String difficulty;
 
-    public Question(String answerA, String answerB, String answerC, String goodAnswers, String question, String clue, int imgID, int sound, String typeQuestion, int difficulty) {
+    public Question(String answerA, String answerB, String answerC, String goodAnswers, String question, String clue, int imgID, int sound, String typeQuestion, String difficulty) {
         this.answerA = answerA;
         this.answerB = answerB;
         this.answerC = answerC;
@@ -39,7 +41,7 @@ public class Question implements Parcelable {
         imgID = in.readInt();
         sound = in.readInt();
         typeQuestion = in.readString();
-        difficulty = in.readInt();
+        difficulty = in.readString();
     }
 
     @Override
@@ -53,7 +55,7 @@ public class Question implements Parcelable {
         dest.writeInt(imgID);
         dest.writeInt(sound);
         dest.writeString(typeQuestion);
-        dest.writeInt(difficulty);
+        dest.writeString(difficulty);
     }
 
     @Override
@@ -113,7 +115,7 @@ public class Question implements Parcelable {
         return typeQuestion;
     }
 
-    public int getDifficulty() {
+    public String getDifficulty() {
         return difficulty;
     }
 }
